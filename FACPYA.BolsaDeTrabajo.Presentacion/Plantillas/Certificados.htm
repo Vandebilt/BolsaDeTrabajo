@@ -1,0 +1,78 @@
+﻿<style scoped>
+    .mb-4 {
+        margin-bottom: 1rem;
+    }
+
+    .certificate-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .certificate-institution {
+        margin-bottom: 0.125rem;
+        font-size: .75rem;
+        line-height: 1.5rem;
+        font-weight: 700;
+    }
+
+    .certificate-description {
+        margin-bottom: 0.125rem;
+        font-size: 0.75rem;
+        line-height: 1.5rem;
+    }
+
+    .certificate-body {
+        margin-top: 0;
+        text-align: right;
+    }
+
+    .certificate-subtitle {
+        font-size: 0.75rem;
+        line-height: 1.5rem;
+        color: #4B5563;
+    }
+
+    @media (max-width: 640px) {
+        .certificate-container {
+            flex-direction: column;
+        }
+
+        .certificate-description {
+            font-size: 0.625rem;
+            line-height: 1.25rem;
+        }
+
+        .certificate-body {
+            margin-top: 0.25rem;
+            text-align: left;
+        }
+
+        .certificate-subtitle {
+            font-size: 0.625rem;
+            line-height: 1.25rem;
+        }
+    }
+</style>
+
+<article class="mb-4">
+    <div class="certificate-container">
+        <div class="flex-1">
+            <div class="certificate-institution">
+                {certificate_institution}
+            </div>
+            <div class="certificate-description">
+                {certificate_description}
+            </div>
+        </div>
+        <div class="certificate-body">
+            <span class="certificate-subtitle">
+                Clave: {certificate_key}
+            </span>
+            <div class="italic text-sm">
+                {certificate_date}
+            </div>
+        </div>
+    </div>
+</article>

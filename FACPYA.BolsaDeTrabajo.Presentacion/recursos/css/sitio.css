@@ -1,0 +1,1207 @@
+﻿/* Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: auto; /* Permite scroll */
+    font-family: "Poppins", sans-serif;
+    background-color:rgba(191, 191, 191, 0.3);
+}
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+    }
+
+
+#perfilTabs {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px; /* Espacio entre botones */
+}
+
+    #perfilTabs .nav-item {
+        width: 100%;
+    }
+
+    #perfilTabs .nav-link {
+        display: flex; /* Para alinear icono y texto */
+        align-items: center; /* Centrado vertical */
+        text-align: left;
+        width: 100%;
+        padding: 12px 15px; /* Más espacio interno */
+        font-size: 15px !important;
+        font-weight: 500;
+        color: #555; /* Color de texto suave */
+        border-radius: 2px; /* Bordes redondeados modernos */
+        transition: all 0.3s ease;
+        border: 1px solid transparent; /* Evita saltos al hacer hover */
+        /* Manejo del texto largo */
+        white-space: normal !important;
+        line-height: 1.2 !important;
+    }
+
+        /* Estilo para el icono dentro del link */
+        #perfilTabs .nav-link i {
+            font-size: 18px;
+            width: 30px; /* Ancho fijo para que el texto se alinee perfectamente */
+            text-align: center;
+            margin-right: 5px;
+        }
+
+        /* Hover (mouse encima) */
+        #perfilTabs .nav-link:hover {
+            background-color: #f0f2f5;
+            color: #0067a3; /* Tu color azul corporativo */
+            transform: translateX(5px); /* Pequeña animación de movimiento */
+        }
+
+.nav-pills .nav-link.active i {
+    color: white !important;
+}
+/* Pestaña activa */
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+    background-color: #161d26 !important; /* Azul en lugar de gris oscuro */
+    color: white !important;
+    box-shadow: 0 4px 6px rgba(0, 103, 163, 0.3); /* Sombra suave */
+    font-weight: 600;
+}
+
+body {
+    --sb-track-color: #ffffff;
+    --sb-thumb-color: #cb0422;
+    --sb-size: 5px;
+}
+
+    body::-webkit-scrollbar {
+        width: var(--sb-size);
+    }
+
+    body::-webkit-scrollbar-track {
+        background: var(--sb-track-color);
+        border-radius: 1px;
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background: var(--sb-thumb-color);
+        border-radius: 1px;
+    }
+
+@supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}
+
+
+.h-90vh {
+    min-height: 86vh;
+    margin-bottom: 30px;
+    border: 1px solid rgba(191, 191, 191, 1);
+}
+
+
+.h-28vh {
+    min-height: 28vh;
+    border: 1px solid rgba(191, 191, 191, 1);
+}
+
+.h-40vh {
+    min-height: 39vh;
+    border: 1px solid rgba(191, 191, 191, 1);
+}
+
+.h-50vh {
+    min-height: 56vh;
+    border: 1px solid rgba(191, 191, 191, 1);
+}
+
+
+/* Estilos para móviles */
+@media (max-width: 600px) {
+    .h-28vh,
+    .h-60vh,
+    .h-75vh,
+    .h-90vh,
+    .w-30 {
+        height: 100%;
+    }
+}
+
+/* Estilos para tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .h-28vh,
+    .h-60vh,
+    .h-75vh,
+    .h-90vh,
+    .w-30 {
+        height: 100%;
+    }
+}
+
+.card {
+    border-color: silver;
+}
+
+.card-body {
+    padding-bottom: 0 !important;
+    margin-top: 2vh; /* relativo a la altura de la pantalla */
+}
+
+
+.card-header {
+    margin-top: 5px;
+    background : #ffffff;
+    color: #0067a3 !important;
+    border-bottom: 2px solid #0067a3 !important;
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+
+.card-subheader {
+    margin-top: 5px;
+    color: #2e2e2e !important;
+    border-bottom: 2px solid #787878 !important;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.card-laboral {
+    margin-top: auto;
+    border: 0.5px solid #c6c6c6;
+    border-radius: 5px;
+}
+
+.card-body-laboral {
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    padding-bottom: 0 !important;
+    margin-left: 3vh;
+    color: black;
+}
+
+.card-footer-laboral {
+    margin-top: auto;
+    background: #ADA996; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EAEAEA, #DBDBDB, #F2F2F2, #ADA996); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.text-laboral {
+    margin-left: 3vh; /* relativo a la altura de la pantalla */
+}
+
+.row {
+    margin-bottom: 0 !important;
+}
+
+.container-fluid {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+
+.label {
+    color: #5b5b5b !important; /* Texto oscuro para contraste */
+}
+
+.navbar {
+    padding: 12px 24px;
+    background-color: #161d26;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+
+.navbar-Text {
+    color: white; /* Texto oscuro para contraste */
+    margin-right: 30px;
+    margin-left: 30px;
+    font-weight: 500; /* Negrita normal */
+}
+
+
+.active-nav {
+    position: relative;
+}
+
+    .active-nav > .nav-link {
+        color: white !important;
+        font-weight: 100;
+    }
+
+    .active-nav::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%; /* Prueba esto, es un estilo muy común */
+        height: 2px;
+        background-color: white;
+    }
+
+
+.linea-vertical {
+    width: 0.2px;
+    background-color: white;
+    height: auto; /* Ajusta la altura automáticamente al contenido */
+    margin: 0 10px;
+    max-height: 50vh; /* Limita la altura a un máximo de la mitad de la pantalla */
+}
+
+.btnGris {
+    background-color: #333;
+}
+
+/* Ajustes de los botones */
+.btnRed {
+    background-color: #CB0422;
+}
+
+    .btnRed:hover {
+        background-color: #AC0C00;
+    }
+
+.btnDesactivar {
+    opacity: 50%;
+}
+
+.gvbtn {
+}
+
+.label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #000;
+}
+
+/* Estilos de los controles de texto */
+.textbox {
+    border: solid transparent;
+    border-bottom: 1px solid #CED4DA;
+}
+
+    .textbox:focus {
+        border: solid transparent;
+        border-bottom: 1px solid #CED4DA;
+        box-shadow: 0px 10px 5px -3px #CED4DA;
+    }
+
+.w-100 {
+    width: 100%;
+    border-radius: 0px;
+}
+
+.w-70 {
+    width: 70%;
+    border-radius: 0px;
+}
+
+.w-40 {
+    width: 40%;
+    border-radius: 0px;
+}
+
+
+.w-30 {
+    width: 30%;
+    border-radius: 0px;
+}
+
+/* Cambiar el color del placeholder y label del control textbox */
+.input-field input:focus + label {
+    color: silver !important;
+}
+
+.input-field input:focus {
+    border-bottom: 1px solid #d50000 !important;
+    box-shadow: 0 1px 0 0 #d50000 !important;
+}
+
+/* Cambiar el color al dar clic en menú con dropdownlist */
+.menuDropDown {
+    --bs-dropdown-link-active-bg: #CB0422;
+}
+
+.titulo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #0277bd;
+    text-transform: uppercase;
+}
+
+.labelFecha {
+    color: var(--bs-secondary-color);
+}
+
+/* Contenedor para acciones de botones */
+.contenedor-acciones {
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    text-align: center;
+}
+
+/* Botones de paginación */
+.pagination-btn {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    border-radius: 0.375rem;
+    color: #6B7280;
+    text-transform: capitalize;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+/* Indicador de posición de paginación */
+.active {
+    background: white !important;
+    color: #FAFAFA !important;
+}
+
+
+/* Icono de requerido */
+.required {
+    position: absolute;
+    font-size: 10px;
+    top: 15px;
+    right: 10px;
+    color: red;
+}
+
+.mt-10 {
+    margin-top: 2.5rem;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.space-y-6 {
+    margin-top: 1.5rem;
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    color: #111827;
+}
+
+.image-gallery {
+    margin-top: 1.5rem;
+    max-width: 42rem;
+
+    @media (min-width: 640px) {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+        display: grid;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        max-width: 80rem;
+    }
+}
+
+.image-gallery-image-item {
+    @media (min-width: 640px) {
+        overflow: hidden;
+        border-radius: 0.5rem;
+    }
+}
+
+.image-gallery-item {
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 100%;
+}
+
+
+.form-check-label {
+    color: #ADA996;
+}
+
+.divisor-vertical {
+    border-left: 2px solid black; /* Grosor y color de la línea */
+    height: 70vh; /* Ocupa toda la altura disponible */
+    width: 1px;
+}
+
+
+/* Estilo general del GridView */
+.table {
+    background: #fff;
+    overflow: hidden; /* redondea bien las esquinas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: white;
+}
+
+    /* Encabezado */
+    .table thead th {
+        background: #2c3e50; /* azul oscuro elegante */
+        color: #ffffff;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        padding: 12px;
+        border-bottom: none;
+    }
+
+    /* Filas */
+    .table tbody tr {
+        transition: all 0.2s ease;
+    }
+
+
+/* Rayado */
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #fafafa;
+}
+
+/* Celdas */
+.table td {
+    padding: 10px 14px;
+    vertical-align: middle;
+    font-size: 0.9rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+    /* Bordes redondeados en la primera y última columna */
+    .table td:first-child,
+    .table th:first-child {
+        border-top-left-radius: 0;
+    }
+
+    .table td:last-child,
+    .table th:last-child {
+        border-top-right-radius: 0;
+    }
+
+.tab-content {
+    margin: 0 0px; /* por defecto para móviles */
+}
+
+@media (min-width: 992px) {
+    .tab-content {
+        margin: 0 10px; /* para pantallas grandes */
+    }
+}
+
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body.contenido {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+/* tab-content llena el espacio disponible dentro del body */
+#perfilTabsContent {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+/* el footer siempre queda abajo */
+.card-footer {
+    /*    margin-left: 7%;
+    margin-right: 7%;*/
+    background: white;
+}
+
+
+.simbolo-peso {
+    position: absolute;
+    top: 65%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #6b6b6b;
+    pointer-events: none; /* Evita interferir con el clic */
+}
+
+.form-floating .textbox.ps-4 {
+    padding-left: 20px !important; /* Espacio para el símbolo */
+}
+
+/* ===================== IMAGEN SUSTENTANTE ===================== */
+.card-image {
+    justify-content: center;
+}
+
+:root {
+    --avatar-size: 260px;
+}
+
+/* Contenedor de la vista previa + botón borrar */
+#previewContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.preview-frame {
+    width: 100%; /* Asegura que el marco ocupe todo el ancho */
+    height: auto; /* Ajusta la altura en función de la imagen */
+    margin-top: 20px; /* Ajusta el espacio superior según lo necesites */
+}
+
+/* Imagen de preview (Unificando tus dos reglas) */
+#previewImage {
+    width: 100%;
+    height: auto; /* Asegura que la imagen se ajuste a su contenedor */
+    object-fit: cover; /* Asegura que la imagen cubra completamente el área */
+    box-shadow: 0 0 6px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+    #previewImage:hover {
+        transform: scale(1.01);
+    }
+
+.border-image {
+    /*    display: flex;
+*/ /*border: 2px dashed #ccc;*/
+    border-radius: 1px;
+    padding: 15px;
+    /*    background: #f9f9f9;*/
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: auto; /* Cambia a 'auto' para permitir que la altura se ajuste según la imagen */
+    width: 100%; /* Hace que el contenedor ocupe todo el ancho */
+}
+
+
+    .border-image:hover {
+        /*        background: #e9ecef;
+*/
+    }
+
+.col-md-3 .border-image {
+    max-width: calc(var(--avatar-size) + 40px);
+}
+
+/* ===================== Cuadro "Subir imagen" ===================== */
+
+.file-select {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #0067a3; /* Cambiado a tu color azul para el texto */
+    width: 100%;
+    max-width: 450px; /* Ancho máximo para mantener la forma */
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 12px;
+    border: 2px dashed #0067a3; /* Borde discontinuo característico de uploads */
+    background-color: #f4f9fc; /* Fondo azul muy claro */
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+    .file-select:hover {
+        background-color: #e3f0f9; /* Se oscurece ligeramente al pasar el mouse */
+        border-color: #008ee0;
+        color: #008ee0;
+        transform: scale(1.02); /* Pequeño efecto de elevación */
+    }
+
+    /* El input sigue siendo invisible y cubre toda el área */
+    .file-select input[type="file"],
+    #uploadImage {
+        opacity: 0;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    /* Estilos para el contenido interno (ícono y texto) */
+    .file-select .file-select-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        pointer-events: none; /* Evita que interfiera con el clic del input */
+    }
+
+    .file-select .icon {
+        font-size: 45px;
+        margin-bottom: 12px;
+        transition: transform 0.3s ease;
+    }
+
+    .file-select:hover .icon {
+        transform: translateY(-5px); /* El ícono flota ligeramente al hacer hover */
+    }
+
+    .file-select .text {
+        font-size: 16px;
+        font-weight: 600;
+        font-family: system-ui, -apple-system, sans-serif;
+    }
+
+/* ===================== CSS del Modal ===================== */
+.img-container {
+    width: 100%;
+    height: 400px;
+    max-height: 400px;
+    background: #f7f7f7;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .img-container > img {
+        display: block;
+        max-width: 100px;
+    }
+
+
+/* Mostrar contenedor solo si hay una imagen */
+#previewContainer:not(:has(#previewImage[src=""])) .preview-frame {
+    /* Aquí podrías añadir estilos de marco si lo deseas, o simplemente asegurar que se muestre */
+}
+
+
+#imageModal .modal-body {
+    max-height: 80vh; /* Limita la altura del modal al 60% de la ventana */
+    max-width: 100%;
+    overflow: auto; /* Evita que el contenido se desborde horizontalmente */
+    padding: 0; /* Elimina cualquier padding extra */
+    background: #b1b3b5;
+    display: block;
+}
+
+    /* Asegura que la imagen se ajuste dentro del cuerpo del modal sin perder proporción */
+    #imageModal .modal-body img {
+        max-height: 70vh; /* La imagen no debe superar el 50% de la altura de la ventana */
+        width: 100%;
+        object-fit: contain; /* Ajusta la imagen dentro de su contenedor sin recortarla */
+        margin: 0 auto; /* Centra la imagen dentro del contenedor */
+        display: block; /* Asegura que la imagen sea un bloque */
+    }
+
+
+
+.input-con-limpiar {
+    position: relative; /* Contenedor necesario para la posición absoluta */
+    width: 100%;
+}
+
+.limpiar-btn {
+    position: absolute;
+    right: 10px; /* Posición desde la derecha */
+    top: 50%; /* Centrado vertical */
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.4rem; /* Tamaño de la 'x' */
+    color: #999;
+    font-weight: bold;
+    user-select: none; /* Evita que la 'x' se seleccione como texto */
+}
+
+    .limpiar-btn:hover {
+        color: #333;
+    }
+
+/* Oculta el botón 'x' nativo de WebKit (Chrome, Edge, Safari) */
+input[type="time"]::-webkit-clear-button {
+    display: none;
+    -webkit-appearance: none;
+}
+
+/* (Opcional) Oculta también el icono del reloj nativo si lo deseas */
+input[type="time"]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+
+.info-sustentante,
+.info-sustentante:focus,
+.info-sustentante[readonly] {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    color: #212529;
+    border-bottom: 1px solid #dbdbdb;
+    border-radius: 0;
+}
+
+
+.modal-header.header-sustentante {
+    background: #141E30; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #243B55, #141E30); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+
+.titulo-sustentante {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    color: white;
+    pointer-events: none; /* Agrega esto */
+}
+
+.btnVer {
+    background-color: #004e92;
+}
+
+    .btnVer:hover {
+        background-color: #000428; /* Un tono de verde */
+        transition-duration: 0.4s;
+    }
+
+
+/* ===== BOTON LINKEDIN ===== */
+.BtnLnkdn {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    position: relative;
+    background: white;
+    border: 1px solid #004e92;
+}
+
+.svgIcon {
+    transition-duration: 0.3s;
+}
+
+    .svgIcon path {
+        fill: #004e92;
+    }
+
+.text {
+    position: absolute;
+    color: #004e92;
+    width: 70px;
+    font-weight: 600;
+    opacity: 0;
+    transition-duration: 0.4s;
+}
+
+.BtnLnkdn:hover {
+    width: 110px;
+    transition-duration: 0.2s;
+    border-radius: 30px;
+}
+
+    .BtnLnkdn:hover .text {
+        opacity: 1;
+        transition-duration: 0.4s;
+    }
+
+    .BtnLnkdn:hover .svgIcon {
+        opacity: 0;
+        transition-duration: 0.3s;
+    }
+
+.modal-body {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+
+.modal-backdrop.show {
+    opacity: 1 !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    backdrop-filter: blur(2px) !important;
+    -webkit-backdrop-filter: blur(2px) !important;
+}
+
+.modal-backdrop.fade {
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    opacity: 0;
+    transition: opacity 0.3s linear;
+}
+
+
+#ModalNuevoFoto .modal-body {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 60vh;
+    padding: 0;
+    background-color: black !important;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+    #ModalNuevoFoto .modal-body img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+#ModalNuevoFoto .modal-lg {
+    max-width: fit-content;
+}
+
+.upload-completo-blanco input[type="text"] {
+    background-color: #ffffff !important;
+}
+
+
+.upload-completo-blanco {
+    background-color: #ffffff !important;
+}
+
+/* --- VISTA NORMAL (PC/Desktop) --- */
+.sus-card-grid {
+    display: grid;
+    /* Esto crea 8 columnas de igual tamaño en pantallas grandes */
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    /* Recomendable: agregar un max-width para que el margin: auto funcione bien */
+}
+
+/* --- VISTA DE CELULAR (Pantallas de 768px o menos) --- */
+@media (max-width: 768px) {
+    .sus-card-grid {
+        /* Cambiamos a 1 sola columna para que las tarjetas se apilen */
+        grid-template-columns: 1fr;
+        /* Centra el contenido de cada tarjeta dentro de su espacio */
+        justify-items: center;
+        /* Centra la cuadrícula en sí misma dentro del contenedor */
+        justify-content: center;
+    }
+}
+
+
+.sus-card {
+    position: relative;
+    height: 14em;
+    max-width: 200px;
+    width: 100%;
+    background: #333; /* o tu imagen de fondo */
+    border-radius: 5px;
+    overflow: hidden;
+    transition: filter 2s ease, transform 0.5s ease, box-shadow 1s ease;
+}
+
+    .sus-card:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        transform: scale(1.04);
+        cursor: pointer;
+        filter: grayscale(0%);
+    }
+
+    .sus-card::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 70%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 10%, /* Más oscuro en la base */
+        rgba(0, 0, 0, 0.2) 100%, /* Color medio */
+        transparent 100% /* Transparente arriba */
+        );
+        mask-image: linear-gradient(to top, black 50%, /* El efecto es 100% visible en la mitad inferior */
+        transparent 100% /* Se desvanece hasta ser invisible en el borde superior */
+        );
+        -webkit-mask-image: linear-gradient(to top, black 50%, transparent 100%);
+        z-index: 1; /* Encima de la imagen, debajo del texto */
+    }
+
+    /* Al hacer hover, ocultamos el ::before */
+    .sus-card:hover::before {
+        opacity: 0;
+    }
+
+
+.sus-card-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    z-index: 0;
+}
+
+.sus-profile-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+    .sus-profile-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.sus-card-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2; /* Encima del desenfoque */
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1px 15px;
+    color: white;
+    text-align: left;
+}
+
+.sus-nombre {
+    font-weight: 800;
+    margin: 0 0 5px 0;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0,0,0,1);
+    /* Mantener en una sola línea */
+    white-space: nowrap;
+    /* Reducir tamaño si es necesario */
+    font-size: clamp(0.6em, 4vw, 1em); /* mínimo 0.6em, máximo 1em, adaptable al ancho */
+    overflow: hidden;
+}
+
+.sus-descripcion {
+    font-size: 0.7em;
+    line-height: 1.5;
+    color: #e0e0e0;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+.sus-nombre,
+.sus-descripcion {
+    position: relative;
+    z-index: 2;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.sus-card:hover .sus-nombre,
+.sus-card:hover .sus-descripcion {
+    opacity: 0;
+    transform: translateY(-10px); /* opcional: suben un poquito al desaparecer */
+}
+
+.sus-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que los elementos se muevan en pantallas pequeñas */
+    padding: 1.5rem 0; /* Más espacio vertical en el footer */
+    gap: 0.5rem; /* Espaciado uniforme entre todos los elementos */
+}
+
+.sus-pagination-btn {
+    display: inline-flex; /* Para alinear el ícono/texto */
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff; /* Fondo blanco limpio */
+    border: 1px solid #ced4da; /* Borde sutil */
+    color: #495057; /* Color de texto oscuro */
+
+    padding: 0.5rem 0.75rem; /* Equivalente a 8px 12px */
+    min-width: 40px; /* Ancho mínimo */
+
+    border-radius: 0.375rem; /* 6px - Bordes redondeados modernos */
+    text-decoration: none;
+    text-align: center;
+    font-weight: 500;
+    line-height: 1.5;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+    transition: background-color 0.7s ease, color 0.7s ease, border-color 0.2s ease, box-shadow 0.7s ease, transform 0.7s ease;
+}
+
+    .sus-pagination-btn:hover {
+        background-color: #f8f9fa; /* Gris muy claro al pasar el mouse */
+        color: #0056b3; /* Color primario (azul) para el hover */
+        border-color: #adb5bd;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+        transform: translateY(-1px); /* Ligero efecto de elevación */
+    }
+
+    /* Estilo para los enlaces de paginación deshabilitados (ej. "Anterior" en la pág 1) */
+    .sus-pagination-btn[disabled] {
+        background-color: #f8f9fa;
+        color: #adb5bd;
+        pointer-events: none;
+        border-color: #dee2e6;
+        box-shadow: none; /* Sin sombra en deshabilitado */
+        transform: none; /* Sin elevación */
+    }
+
+/* Estilo para el texto "Página X de Y" */
+.sus-page-info {
+    color: #6c757d; /* Color de texto "silenciado" */
+    font-size: 0.9em;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem; /* Alinear con el padding de los botones para consistencia */
+    white-space: nowrap; /* Evitar que se rompa en dos líneas */
+}
+
+@media (max-width: 900px) {
+    /* Opcional: Para tablets, quizás 3 columnas se vean mejor */
+    .sus-card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .sus-card-grid {
+        /* Esto apila las tarjetas en una sola columna */
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    .sus-card {
+        padding: 15px 0;
+        height: 350px; /* Ajusta la altura para móviles si es necesario */
+    }
+
+    .sus-card-body {
+        padding: 0 15px 15px 15px;
+    }
+
+    .sus-nombre {
+        font-size: 1.3em;
+    }
+
+    .sus-descripcion {
+        font-size: 0.85em;
+    }
+
+    .sus-pagination {
+        justify-content: center;
+        gap: 5px;
+        font-size: 0.9em;
+    }
+
+    .sus-pagination-btn {
+        padding: 6px 10px;
+        margin: 0 2px;
+    }
+
+    .sus-page-info {
+        margin-left: 0;
+        margin-top: 10px !important;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+#btn-exportar {
+    background-color: #161d26;
+    color: white;
+    font-family: inherit;
+    display: inline-block;
+    width: 8em;
+    height: 2.6em;
+    line-height: 2.5em;
+    margin: 20px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border: 2px solid #161d26;
+    transition: color 0.5s;
+    z-index: 1;
+    font-size: 17px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* Sobrescribe el color de fondo del input dentro del control */
+.fileupload input {
+    background-color: #ffffff !important; /* O transparent, o el color que uses */
+    color: #495057; /* Color de texto normal de Bootstrap */
+}
+
+/* Por seguridad, aplícalo también al contenedor si es necesario */
+.fileupload {
+    background-color: #ffffff !important;
+}
+
+/* Contenedor que cubre toda la pantalla */
+.loader-overlay {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro transparente */
+    z-index: 9999; /* Para que quede encima de todo */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+}
+
+/* Tu loader original (sin cambios mayores) */
+.loader {
+    display: block;
+    --height-of-loader: 4px;
+    --loader-color: #0071e2;
+    width: 150px; /* Un poco más grande para que se note */
+    height: var(--height-of-loader);
+    border-radius: 30px;
+    background-color: rgba(255,255,255,0.2); /* Cambié a blanco leve para que resalte en fondo oscuro */
+    position: relative;
+}
+
+    .loader::before {
+        content: "";
+        position: absolute;
+        background: var(--loader-color);
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        border-radius: 30px;
+        animation: moving 1s ease-in-out infinite;
+    }
+
+@keyframes moving {
+    50% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0;
+        right: 0;
+        left: unset;
+    }
+}

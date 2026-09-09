@@ -1,0 +1,76 @@
+﻿<style scoped>
+    .experience-content {
+        display: flex;
+        margin-bottom: 0.5rem;
+        justify-content: space-between;
+    }
+
+    .experience-company-name {
+        margin-bottom: 0.125rem;
+        font-size: 0.75rem;
+        line-height: 1.5rem;
+        font-weight: 700;
+    }
+
+    .experience-job-title {
+        font-size: 0.75rem;
+        line-height: 1.5rem;
+        font-style: italic;
+    }
+
+    .experience-body {
+        margin-top: 0;
+        text-align: right;
+    }
+
+    .experience-work-status {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+        font-weight: 700;
+    }
+
+    .experience-dates {
+        line-height: 1.25rem;
+        font-style: italic;
+    }
+
+    .experience-responsibilities-list {
+        padding-left: 1.25rem;
+        margin-top: 0.25rem;
+        line-height: 1.25rem;
+        list-style-type: disc;
+    }
+
+    @media (max-width: 768px) {
+
+        .experience-job-title {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+        }
+
+        .experience-body {
+            margin-top: 0.25rem;
+            text-align: left;
+        }
+    }
+</style>
+<article class="mb-2">
+    <div class="experience-content">
+        <div class="flex-1">
+            <div class="experience-company-name">{company}</div>
+            <div class="experience-job-title">{role}</div>
+        </div>
+        <div class="experience-body">
+            <div class="experience-work-status">{status}</div>
+            <div class="experience-dates text-sm">
+                {start_date}
+                –
+                {end_date}
+            </div>
+        </div>
+    </div>
+
+    <ul class="experience-responsibilities-list text-sm" style="display:{responsability_display}">
+        {responsibilities}
+    </ul>
+</article>

@@ -1,0 +1,208 @@
+﻿
+<style scoped>
+    .cv-container {
+        background-color: white;
+        color: #4b5563;
+        padding: 1.25rem;
+        max-width: 60rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .font-bold {
+        font-weight: 700;
+    }
+
+    .italic {
+        font-style: italic;
+    }
+
+    .text-sm {
+        font-size: 0.625rem;
+        line-height: 1.25rem;
+    }
+
+    .text-gray-600 {
+        color: #4B5563;
+    }
+
+    .w-100 {
+        width: 100%;
+    }
+
+    .mb-2 {
+        margin-bottom: 0.5rem;
+    }
+
+    .flex-1 {
+        flex: 1;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .link {
+        color: #2563EB;
+        text-decoration: none;
+    }
+
+        .link:hover {
+            text-decoration: underline;
+        }
+
+    .header {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 1.25rem;
+        border-bottom: 2px solid #1f2937;
+        padding-bottom: 1rem;
+        margin-bottom: 1.25rem;
+        display: flex;
+    }
+
+    .imagen-perfil {
+        width: 5.5rem;
+        height: 7.5rem;
+        object-fit: cover;
+        border-radius: 0.75rem;
+    }
+
+    .header-title {
+        text-align: left;
+        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+        font-weight: 700;
+        color: #1F2937;
+    }
+
+    .header-data {
+        text-align: left;
+        display: block;
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+        gap: 10px;
+        color: #4B5563;
+    }
+
+    .header-data span{
+        display: block;
+    }
+
+    .summary {
+        font-size: 0.75rem;
+        line-height: 1.25rem;
+        line-height: 1.625;
+        text-align: justify;
+    }
+
+    .section-title {
+        margin-top: 0.3rem;
+        border-bottom-width: 1px;
+        border-color: #1F2937;
+        font-size: 1rem;
+        line-height: 1.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    @media (max-width: 640px) {
+        .grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .md\:text-left {
+            text-align: left;
+        }
+
+        .header {
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-data {
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        .imagen-perfil {
+            width: 7rem;
+            height: 9rem;
+        }
+
+        .header-title {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+        }
+
+        .summary {
+            font-size: 0.875rem;
+        }
+    }
+</style>
+
+<div class="cv-container">
+    <div class="w-100">
+        <!-- Header Section -->
+        <header class="header">
+            <img src="{image}"
+                 alt="Foto de {name}"
+                 class="imagen-perfil" />
+            <div class="flex-1 text-center md:text-left">
+                <h1 class="header-title">
+                    {name}
+                </h1>
+                <div class="header-data">
+                    <span>
+                        {address}
+                    </span>
+                    <span>
+                        <a href="{linkedin_url}" class="link" style="display:{linkedin_display}">linkedin.com/in/</a>
+                    </span>
+                    <span>
+                        {phone}
+                    </span>
+                    <span>
+                        <a href="mailto:{email}" class="link">{email}</a>
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Summary -->
+        <section class="mb-2">
+            <p class="summary">
+                {summary}
+            </p>
+        </section>
+
+        <!-- Professional Experience -->
+        {bloque_experiencia_completo}
+
+        <!-- Education -->
+        <section class="mb-2">
+            <h2 class="section-title">
+                EDUCACIÓN
+            </h2>
+
+            {education}
+        </section>
+
+        <!-- Additional Skills -->
+        {bloque_habilidades_completo}
+
+        <!-- Languages -->
+        {bloque_idiomas_completo}
+
+        <!-- Certificates -->
+        {bloque_certificados_completo}
+
+    </div>
+</div>

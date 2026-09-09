@@ -1,0 +1,69 @@
+﻿<style scoped>
+    .education-content {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .education-academic-status {
+        margin-bottom: 0.125rem;
+        font-size: 0.75rem;
+        line-height: 1.5rem;
+        font-weight: 700;
+    }
+
+    .education-career {
+        margin-bottom: 0.125rem;
+        font-size: 0.75rem;
+        line-height: 1.5rem;
+    }
+
+    .education-body {
+        margin-top: 0;
+        text-align: right;
+    }
+
+    .education-available-schedule {
+        font-size: 0.75rem;
+        line-height: 1.5rem;
+        color: #4B5563;
+    }
+
+    @media (max-width: 640px) {
+        .education-content {
+            flex-direction: column;
+        }
+
+        .education-career {
+            font-size: 0.625rem;
+            line-height: 1.25rem;
+        }
+
+        .education-body {
+            margin-top: 0.25rem;
+            text-align: left;
+        }
+
+        .education-available-schedule {
+            font-size: 0.625rem;
+            line-height: 1.25rem;
+        }
+    }
+</style>
+
+<article class="mb-4">
+    <div class="education-content">
+        <div class="flex-1">
+            <div class="education-academic-status">
+                {status_academic_education}
+            </div>
+            <div class="education-career">{educational_career}</div>
+            <div class="education-available-schedule">{average}</div>
+        </div>
+        <div class="education-body">
+            <div class="font-bold text-sm">{semester}</div>
+            <div class="text-sm">{dates}</div>
+        </div>
+    </div>
+</article>

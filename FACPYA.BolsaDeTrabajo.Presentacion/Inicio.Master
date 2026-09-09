@@ -1,0 +1,351 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Inicio.master.cs" Inherits="FACPYA.BolsaDeTrabajo.Presentacion.Inicio" %>
+
+<!DOCTYPE html>
+
+<html lang="es" class="notranslate" translate="no">
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bolsa De Trabajo</title>
+    <link rel="shortcut icon" type="image/png" href="Recursos/img/iconoFacpya.png" />
+    <!-- Recursos internos de diseño -->
+    <link rel="stylesheet" type="text/css" href="Recursos/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="Recursos/css/sitio.css" />
+    <link rel="stylesheet" type="text/css" href="Recursos/css/alerta.css" />
+    <link href="Recursos/css/select2.css" rel="stylesheet" />
+    <!-- Fin Recursos internos de diseño -->
+    <!-- Recursos externos de diseño -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/2af1926953.js" crossorigin="anonymous"></script>
+    <!-- Fin Recursos externos de diseño -->
+    <!-- Recursos internos de funcionalidad -->
+    <script src="Recursos/js/jquery.min.js"></script>
+    <!-- Primero jQuery -->
+    <script src="Recursos/js/bootstrap.min.js"></script>
+    <!-- Luego Bootstrap -->
+    <script src="Recursos/js/alerta.js"></script>
+    <!-- Fin Recursos internos de funcionalidad -->
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <!-- Evita que se recargue la pagina -->
+    <script type="text/javascript">
+        if (window.history.replaceState) { // verificamos disponibilidad
+            window.history.replaceState(null, null, window.location.href);
+        }
+    </script>
+    <!-- Fin Evita que se recargue la pagina -->
+    <!-- Mensajes de alerta -->
+    <script type="text/javascript">
+        function mostrarConfirmacion(title, text, pantalla, metodoConfirmacion, modalError) {
+            Swal.fire({
+                title: title,
+                text: text,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#333',
+                cancelButtonColor: '#dc3545',
+                confirmButtonText: 'Confirmar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // El usuario hizo clic en Aceptar
+                    var parametros = {
+                        pConfirmacion: 'Confirmación'
+                    };
+                } else {
+                    // El usuario hizo clic en Cancelar
+                    var parametros = {
+                        pConfirmacion: '',
+                    };
+                    localStorage.removeItem("_Id") // Parametro exclusivo de modulo Productos
+                    mostrarModal(modalError)
+                }
+                // Enviar una solicitud AJAX al método en el servidor 
+                $.ajax({
+                    type: "POST",
+                    url: `${pantalla}.aspx/${metodoConfirmacion}`,
+                    data: JSON.stringify(parametros),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        if (response.d == "200") {
+                            // La operación se realizó con éxito 
+                            alertaRecarga('La información ha sido actualizada satisfactoriamente',
+                                'success')
+                        }
+                        else {
+                            // Limpia la variable almacenada del producto
+                            localStorage.removeItem("_Id");
+                            // La operación no se realizó
+                            alertaRecarga(response.d, 'error', '')
+                        }
+                    },
+                    error: function (error) {
+                        // Manejar el error aquí
+                        alert(`Ocurrió un error al redireccionar al método en el servidor: ${error}`);
+                    }
+                });
+            });
+        }
+        function mostrarMensaje(titulo, icono, urlDestino) {
+            Swal.fire({
+                title: titulo,
+                text: "Haga clic para continuar.",
+                icon: icono,
+                allowOutsideClick: false,
+                confirmButtonText: "Aceptar",
+                confirmButtonColor: "#333"
+
+            }).then(function () {
+                // Solo redirigir si la URL no es null
+                if (urlDestino) {
+                    window.location.href = urlDestino;
+                }
+            });
+        }
+    </script>
+    <!-- Fin Mensajes de alerta -->
+    <!-- Abrir ventana modal -->
+    <script type="text/javascript">
+        function abrirModal(ventana) {
+            $(ventana).modal('show');
+        }
+    </script>
+    <!-- Fin Abrir ventana modal -->
+    <!-- Alerta de confirmación -->
+    <script type="text/javascript">
+        function showConfirmation(el) {
+            var btn = el.closest ? el.closest('a') : el;
+
+            Swal.fire({
+                title: '¿Desea confirmar la eliminación del registro seleccionado?',
+                text: "Seleccione una de las opciones",
+                icon: 'question',
+                allowOutsideClick: false,
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#6c757d',
+                confirmButtonText: 'Sí, Continuar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var href = btn.getAttribute('href') || '';
+                    var m = href.match(/__doPostBack\('([^']+)'(?:,'([^']*)')?\)/);
+                    sessionStorage.setItem('BT_Sustentante_WasPostback', 'true');
+
+                    if (m) {
+                        __doPostBack(m[1], m[2] || '');
+                    } else {
+                        btn.removeAttribute('onclick');
+                        btn.click();
+                    }
+                }
+            });
+            // --- 2. NUEVA FUNCIÓN (solo para la imagen) ---
+            function confirmDeleteImage(el, hiddenFieldId) {
+                var btn = el.closest ? el.closest('a') : el;
+
+                Swal.fire({
+                    title: '¿Desea borrar la fotografía?', // Título específico
+                    text: "La imagen se eliminará y deberá subir una nueva.", // Texto específico
+                    icon: 'warning', // Icono más apropiado
+                    allowOutsideClick: false,
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#6c757d',
+                    confirmButtonText: 'Sí, Borrar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // --- INICIO: CÓDIGO DE LIMPIEZA ---
+                        const previewImage = document.getElementById('previewImage');
+                        const previewContainer = document.getElementById('previewContainer');
+                        const srcFile = document.getElementById('srcFile');
+                        const hfCroppedImage = document.getElementById('hfCroppedImage');
+                        if (previewImage) previewImage.src = '';
+                        if (previewContainer) previewContainer.classList.add('d-none');
+                        if (hfCroppedImage) hfCroppedImage.value = '';
+                        if (srcFile) srcFile.classList.remove('d-none');
+                        // --- FIN: CÓDIGO DE LIMPIEZA ---
+                        // --- Lógica para el postback (copiada de tu función) ---
+                        var href = btn.getAttribute('href') || '';
+                        var m = href.match(/__doPostBack\('([^']+)'(?:,'([^']*)')?\)/);
+                        if (m) {
+                            __doPostBack(m[1], m[2] || '');
+                        } else {
+                            btn.removeAttribute('onclick');
+                            btn.click();
+                        }
+                    }
+                });
+                // Importante: siempre retornar false
+            }
+            return false;
+        }
+    </script>
+    <!-- Fin Alerta de confirmación -->
+    <!-- Mensajes de alerta recarga -->
+    <script>
+        function alertaRecarga(titulo, icono) {
+            Swal.fire({
+                title: titulo,
+                icon: icono,
+                showDenyButton: false,
+                showCancelButton: false,
+                confirmButtonText: 'Aceptar',
+                confirmButtonColor: '#333'
+            }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    location.reload();
+                }
+            })
+        }
+    </script>
+    <!-- Fin Mensajes de alerta recarga -->
+    <form id="form1" runat="server" autocomplete="off" enctype="multipart/form-data">
+        <div>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <div class="content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <!-- Menú de navegación -->
+            <div class="navbar-wrapper position-relative">
+                <!-- Menú de navegación -->
+                <nav id="navbarPrincipal" runat="server" class=" navbar navbar-expand-lg navbar-dark menu">
+                    <div class="container-fluid">
+                        <!-- Marca -->
+                        <div class="d-flex">
+                            <a class="navbar-brand w-100 ms-2 ms-lg-5 navbar-Text">
+                                <i class="bi bi-briefcase me-2"></i>
+                                <span class="fw-light">
+                                    <%--<img src="Recursos/img/elefanteAbstracto.png" alt="icono" height="20" class="me-1" style="filter: brightness(0) invert(1);">--%>FACPYA | 
+                                </span>BOLSA DE TRABAJO
+                            </a>
+                        </div>
+                        <!-- Botón responsive -->
+                        <button class="navbar-toggler w-100" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                            aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <!-- Contenido -->
+                        <div class="collapse navbar-collapse" id="navbarScroll">
+                            <!-- Menú izquierdo -->
+                            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                                <li id="liUsuario" class="nav-item" runat="server" visible="false">
+                                    <a class="nav-link elemento navbar-Text" href="Usuario.aspx">Usuario</a>
+                                </li>
+                                <li id="liPerfilCandidato" class="nav-item" runat="server" visible="false">
+                                    <a class="nav-link elemento navbar-Text" href="PerfilCandidato.aspx">Perfil</a>
+                                </li>
+                                <li id="liPerfilEmpresa" class="nav-item" runat="server" visible="false">
+                                    <a class="nav-link elemento navbar-Text" href="PerfilEmpresa.aspx">Perfil de Empresa</a>
+                                </li>
+                                <li id="liPanelEmpresa" class="nav-item" runat="server" visible="false">
+                                    <a class="nav-link elemento navbar-Text" href="PanelEmpresa.aspx">Panel de Solicitudes</a>
+                                </li>
+                                <li id="liGrupoMod" class="nav-item" runat="server" visible="false">
+                                    <a class="nav-link elemento navbar-Text dropdown-toggle" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Módulos
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li id="liArea" runat="server">
+                                            <a class="dropdown-item" href="Area.aspx">Area Interes/Experiencia</a>
+                                        </li>
+                                        <li id="liHabilidad" runat="server">
+                                            <a class="dropdown-item" href="Habilidad.aspx">Habilidad</a>
+                                        </li>
+                                        <li id="liIdioma" runat="server">
+                                            <a class="dropdown-item" href="Idioma.aspx">Idioma</a>
+                                        </li>
+                                        <li id="liCertificacionIdioma" runat="server">
+                                            <a class="dropdown-item" href="CertificacionIdioma.aspx">Certificación Idioma</a>
+                                        </li>
+                                        <li id="liPaqueteSoftware" runat="server">
+                                            <a class="dropdown-item" href="PaqueteSoftware.aspx">Paquete de Software</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li id="liGrupoCandidato" class="nav-item dropdown" runat="server" visible="false">
+                                    <a class="nav-link elemento navbar-Text dropdown-toggle" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Candidatos</a>
+                                    <ul class="dropdown-menu">
+                                        <li id="liValidacionCandidato" runat="server">
+                                            <a class="dropdown-item" href="ValidacionCandidato.aspx">Validación</a>
+                                        </li>
+                                        <li id="liListadoCandidato" runat="server">
+                                            <a class="dropdown-item" href="ListadoCandidato.aspx">Listado</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li id="liGrupoEmpresa" class="nav-item dropdown" runat="server" visible="false">
+                                    <a class="nav-link elemento navbar-Text dropdown-toggle" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Empresas</a>
+                                    <ul class="dropdown-menu">
+                                        <li id="liValidacionEmpresa" runat="server">
+                                            <a class="dropdown-item" href="ValidacionEmpresa.aspx">Validación</a>
+                                        </li>
+                                        <li id="liListadoEmpresa" runat="server">
+                                            <a class="dropdown-item" href="ListadoEmpresa.aspx">Listado</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <asp:HyperLink ID="lnkManual" runat="server" Visible="false" Target="_blank" CssClass="btn btn-danger border-0 bg-transparent">Manual de Usuario <i class="fa-solid fa-book"></i></asp:HyperLink>
+                            <!-- Cerrar sesión -->
+                            <asp:LinkButton ID="btnCerrarSesion" runat="server"
+                                CssClass="btn btn-danger border-0 bg-transparent navbar-Text"
+                                OnClick="btnCerrarSesion_Click">
+                Cerrar Sesión <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                            </asp:LinkButton>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <!-- Fin Menú de navegación -->
+            <!-- Contenido principal -->
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <!-- Fin Contenido principal -->
+        </div>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+    <script src="Recursos/js/alerta.js"></script>
+    <!-- Select2 -->
+    <script type="text/javascript">
+        $(function () {
+            // Inicializa todos los controles select2 con la clase "select2-custom"
+            $(".select2-custom").each(function () {
+                // Verificando si su elemento padre tiene la clase de un modal
+                // Si es así, asignamos el modal como el dropdownParent, de lo contrario, dejamos el dropdownParent como null
+                var dropdownParent = $(this).closest('.modal').length > 0 ? $("#ModalNuevo") : null;
+                $(this).select2({
+                    // Cambiando mensajes a español
+                    language: {
+                        noResults: function () {
+                            return "No hay resultados";
+                        },
+                        searching: function () {
+                            return "Buscando...";
+                        }
+                    },
+                    dropdownParent: dropdownParent // Para que funcione el control con select2 en el modal
+                });
+            });
+            // Agrega un placeholder personalizado al campo de búsqueda de cada control select2 al abrirlo
+            $(".select2-custom").on("select2:open", function (event) {
+                $('input.select2-search__field').attr('placeholder', 'Buscar');
+            });
+        });
+    </script>
+    <!-- Fin Select2 -->
+    <div id="fade-overlay"></div>
+    <div id="overlayCarga" class="loader-overlay">
+        <div class="loader"></div>
+    </div>
+</body>
+</html>

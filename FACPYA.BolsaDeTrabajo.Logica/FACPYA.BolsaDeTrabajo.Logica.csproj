@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{64DF340F-7C18-445F-88EB-AFF6A4F86FBF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FACPYA.BolsaDeTrabajo.Logica</RootNamespace>
+    <AssemblyName>FACPYA.BolsaDeTrabajo.Logica</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.4\lib\net40\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net40\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.5.7.0\lib\net451\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.7.0\lib\net451\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.7.0\lib\net451\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.7.0\lib\net451\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\TokenHelper.cs" />
+    <Compile Include="logicaArea.cs" />
+    <Compile Include="logicaCatalogo.cs" />
+    <Compile Include="logicaCodigo.cs" />
+    <Compile Include="logicaEnviarCorreo.cs" />
+    <Compile Include="logicaExpedienteAcademico.cs" />
+    <Compile Include="logicaExportarExcel.cs" />
+    <Compile Include="logicaHabilidad.cs" />
+    <Compile Include="logicaCertificacionIdioma.cs" />
+    <Compile Include="logicaIdioma.cs" />
+    <Compile Include="logicaListadoEmpresa.cs" />
+    <Compile Include="logicaListadoSustentante.cs" />
+    <Compile Include="logicaPaqueteSoftware.cs" />
+    <Compile Include="logicaEmpresa.cs" />
+    <Compile Include="logicaEmpresaArchivo.cs" />
+    <Compile Include="logicaSustentanteAreaExperiencia.cs" />
+    <Compile Include="logicaSustentanteExperienciaLaboral.cs" />
+    <Compile Include="logicaFormacionSustentante.cs" />
+    <Compile Include="logicaSustentanteCertificado.cs" />
+    <Compile Include="logicaSustentanteCertificacionIdioma.cs" />
+    <Compile Include="logicaTelefonoEmpresa.cs" />
+    <Compile Include="logicaValidacionEmpresa.cs" />
+    <Compile Include="logicaValidacionSustentante.cs" />
+    <Compile Include="logicaGradoSustentante.cs" />
+    <Compile Include="logicaRuta.cs" />
+    <Compile Include="logicaSustentanteArchivo.cs" />
+    <Compile Include="logicaSustentanteCorreo.cs" />
+    <Compile Include="logicaDocumento.cs" />
+    <Compile Include="logicaSustentanteHabilidad.cs" />
+    <Compile Include="logicaSustentanteManejoSoftware.cs" />
+    <Compile Include="logicaSustentante.cs" />
+    <Compile Include="logicaSustentanteAreaInteres.cs" />
+    <Compile Include="logicaSustentanteIdioma.cs" />
+    <Compile Include="logicaSustentanteTelefono.cs" />
+    <Compile Include="logicaUsuario.cs" />
+    <Compile Include="logicaVerEmpresa.cs" />
+    <Compile Include="logicaVerSustentante.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Validacion\catalogoValidacion.cs" />
+    <Compile Include="Validacion\validacionCertificacionIdioma.cs" />
+    <Compile Include="Validacion\validacionPaqueteSoftware.cs" />
+    <Compile Include="Validacion\validacionIdioma.cs" />
+    <Compile Include="Validacion\validacionHabilidad.cs" />
+    <Compile Include="Validacion\validacionArea.cs" />
+    <Compile Include="Validacion\validacionExpedienteAcademico.cs" />
+    <Compile Include="Validacion\validacionFormacionSustentante.cs" />
+    <Compile Include="Validacion\validacionGradoSustentante.cs" />
+    <Compile Include="Validacion\validacionRecuperarContrasena.cs" />
+    <Compile Include="Validacion\validacionEmpresa.cs" />
+    <Compile Include="Validacion\validacionSustentanteAreaExperiencia.cs" />
+    <Compile Include="Validacion\validacionSustentanteCertificado.cs" />
+    <Compile Include="Validacion\validacionSustentanteCorreo.cs" />
+    <Compile Include="Validacion\validacionSustentante.cs" />
+    <Compile Include="Validacion\validacionSustentanteAreaInteres.cs" />
+    <Compile Include="Validacion\validacionEmpresaDocumento.cs" />
+    <Compile Include="Validacion\validacionSustentanteDocumento.cs" />
+    <Compile Include="Validacion\validacionSustentanteExperienciaLaboral.cs" />
+    <Compile Include="Validacion\validacionSustentanteHabilidad.cs" />
+    <Compile Include="Validacion\validacionSustentanteCertificacionIdioma.cs" />
+    <Compile Include="Validacion\validacionSustentanteIdioma.cs" />
+    <Compile Include="Validacion\validacionSustentanteManejoSoftware.cs" />
+    <Compile Include="Validacion\validacionTelefonoEmpresa.cs" />
+    <Compile Include="Validacion\validacionSustentanteTelefono.cs" />
+    <Compile Include="Validacion\validacionUsuario.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FACPYA.BolsaDeTrabajo.Datos\FACPYA.BolsaDeTrabajo.Datos.csproj">
+      <Project>{c4d76812-2dea-459d-ae51-802f74ca6eaa}</Project>
+      <Name>FACPYA.BolsaDeTrabajo.Datos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FACPYA.BolsaDeTrabajo.Entidad\FACPYA.BolsaDeTrabajo.Entidad.csproj">
+      <Project>{f7d1c8fb-606c-4bac-8bb6-3e35be024966}</Project>
+      <Name>FACPYA.BolsaDeTrabajo.Entidad</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
