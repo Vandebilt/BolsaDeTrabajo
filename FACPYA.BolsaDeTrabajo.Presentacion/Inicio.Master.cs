@@ -79,8 +79,9 @@ namespace FACPYA.BolsaDeTrabajo.Presentacion
                 {
                     lnkManual.Visible = true;
                     liGrupoCandidato.Visible = true;
-                    liGrupoEmpresa.Visible = true;
+                    liGrupoEmpresa.Visible = true; // incluye "Panel de Solicitudes" (liPanelSolicitudesAdmin) agrupado ahí
                     liGrupoMod.Visible = true;
+
 
                     // Bloquea acceso a paginas de diferente rol
                     if (pagina != "ValidacionCandidato.aspx" &&
@@ -92,6 +93,8 @@ namespace FACPYA.BolsaDeTrabajo.Presentacion
                         pagina != "Area.aspx" && pagina != "Habilidad.aspx" &&
                         pagina != "PaqueteSoftware.aspx" &&
                         pagina != "Idioma.aspx" &&
+                        pagina != "PanelSolicitudes.aspx" &&
+                        pagina != "Vacante.aspx" &&
                         pagina != "CertificacionIdioma.aspx")
                     {
                         Response.Write("<script>alert('Lo sentimos, no cuenta con permisos para esta sección')</script>");
@@ -130,16 +133,16 @@ namespace FACPYA.BolsaDeTrabajo.Presentacion
 
                     if (lista[0].IdEstatus == 4)
                     {
-                        liPanelEmpresa.Visible = true;
+                        liPanelSolicitudes.Visible = true;
                     }
 
                     liPerfilEmpresa.Visible = true;
 
                     // Bloquea acceso a paginas de diferente rol
-                    if (pagina != "PerfilEmpresa.aspx" && pagina != "PanelEmpresa.aspx" && pagina != "Vacante.aspx")
+                    if (pagina != "PerfilEmpresa.aspx" && pagina != "PanelSolicitudes.aspx" && pagina != "Vacante.aspx")
                     {
                         Response.Write("<script>alert('Lo sentimos, no cuenta con permisos para esta sección')</script>");
-                        Response.Write("<script>setTimeout(\"location.href='liPerfilEmpresa.aspx'\",0)</script>");
+                        Response.Write("<script>setTimeout(\"location.href='PerfilEmpresa.aspx'\",0)</script>");
                     }
                 }
             }
@@ -169,9 +172,9 @@ namespace FACPYA.BolsaDeTrabajo.Presentacion
                 liValidacionCandidato.Attributes["class"] = liValidacionCandidato.Attributes["class"].Replace(" active-nav", "");
             }
 
-            if (liPanelEmpresa.Attributes["class"] != null)
+            if (liPanelSolicitudes.Attributes["class"] != null)
             {
-                liPanelEmpresa.Attributes["class"] = liPanelEmpresa.Attributes["class"].Replace(" active-nav", "");
+                liPanelSolicitudes.Attributes["class"] = liPanelSolicitudes.Attributes["class"].Replace(" active-nav", "");
             }
 
             if (liArea.Attributes["class"] != null)
@@ -221,9 +224,12 @@ namespace FACPYA.BolsaDeTrabajo.Presentacion
                 liPerfilEmpresa.Attributes["class"] += " active-nav";
             }
 
-            else if (currentPage == "panelempresa.aspx") // Asegúrate que esté en minúsculas
+            else if (currentPage == "panelsolicitudes.aspx") // Asegúrate que esté en minúsculas
             {
-                liPanelEmpresa.Attributes["class"] += " active-nav";
+                // Empresa: item de primer nivel. Administrador: item agrupado dentro de "Empresas".
+                liPanelSolicitudes.Attributes["class"] += " active-nav";
+                liPanelSolicitudesAdmin.Attributes["class"] += " active-nav";
+                liGrupoEmpresa.Attributes["class"] += " active-nav";
             }
 
             else if (currentPage == "listadocandidato.aspx") // Asegúrate que esté en minúsculas

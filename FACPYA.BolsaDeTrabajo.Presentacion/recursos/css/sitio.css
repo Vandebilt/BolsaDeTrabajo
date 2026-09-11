@@ -1205,3 +1205,91 @@ input[type="time"]::-webkit-calendar-picker-indicator {
         left: unset;
     }
 }
+
+
+/* SLIDER EDAD */
+.range-slider-container {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* El fondo gris de la barra */
+.slider-track-bg {
+    position: absolute;
+    width: 100%;
+    height: 6px;
+    background-color: #e5e5e5; /* Gris claro */
+    border-radius: 4px;
+    top: 35px;
+    z-index: 1;
+}
+
+/* La línea rosa que une ambos puntos */
+.slider-progress {
+    position: absolute;
+    height: 6px;
+    background-color: #00a2e8; /* Rosa fucsia de la imagen */
+    border-radius: 4px;
+    top: 35px;
+    z-index: 2;
+}
+
+/* Esconder los inputs por defecto y posicionarlos sobre las barras */
+.range-slider-container input[type="range"] {
+    position: absolute !important;
+    width: 100% !important;
+    top: 26px !important;
+    left: 0 !important; /* Fuerza a que ambos empiecen en el mismo pixel */
+    margin: 0 !important; /* Elimina márgenes de Bootstrap */
+    padding: 0 !important;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent !important; /* Fondo transparente vital para que se vea la barra rosa debajo */
+    pointer-events: none;
+    z-index: 3;
+}
+
+    /* Estilo de los círculos (Thumbs) - Webkit (Chrome, Safari, Edge) */
+    .range-slider-container input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        pointer-events: auto;
+        width: 24px;
+        height: 24px;
+        background-color: #006bff;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    /* Estilo de los círculos (Thumbs) - Firefox */
+    .range-slider-container input[type="range"]::-moz-range-thumb {
+        pointer-events: auto;
+        width: 24px;
+        height: 24px;
+        background-color: #00a2e8;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+/* Las etiquetas numéricas flotantes */
+.slider-value {
+    position: absolute;
+    top: 55px; /* Las posiciona debajo del slider. Ajusta los px según el grosor de tu slider */
+    transform: translateX(-50%); /* Centra el texto exactamente sobre el punto */
+    font-weight: bold;
+    font-size: 15px;
+    color: #000;
+}
+
+#seccionSemestre {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
+}
+
+    /* Ocultamiento alterno por clase (el JS actual usa .d-none) */
+    #seccionSemestre.seccion-oculta {
+        display: none;
+    }

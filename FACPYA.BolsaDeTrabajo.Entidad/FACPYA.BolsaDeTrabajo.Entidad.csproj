@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bdEntidad\bdSolicitud.cs" />
+    <Compile Include="bdEntidad\bdMunicipioSolicitud.cs" />
+    <Compile Include="bdEntidad\bdCarreraSolicitud.cs" />
+    <Compile Include="bdEntidad\bdSemestreSolicitud.cs" />
+    <Compile Include="bdEntidad\bdExperienciaSolicitud.cs" />
+    <Compile Include="bdEntidad\bdIdiomaSolicitud.cs" />
     <Compile Include="bdEntidad\bdArea.cs" />
     <Compile Include="bdEntidad\bdCorreoSustentante.cs" />
     <Compile Include="bdEntidad\bdExpedienteAcademico.cs" />

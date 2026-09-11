@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Inicio.Master" AutoEventWireup="true" CodeBehind="PanelEmpresa.aspx.cs" Inherits="FACPYA.BolsaDeTrabajo.Presentacion.PanelEmpresa" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Inicio.Master" AutoEventWireup="true" CodeBehind="PanelSolicitudes.aspx.cs" Inherits="FACPYA.BolsaDeTrabajo.Presentacion.PanelSolicitudes" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -21,21 +21,22 @@
                                 <!-- Controles para búsqueda -->
                                 <div class="col-md-10">
                                     <div class="row g-3">
-                                        <div class="col-md-3">
+                                        <div class="col-md-3" id="colBtnNuevaVacante" runat="server">
                                             <div class="form-floating">
-                                                <asp:LinkButton ID="btnNuevaVacante" runat="server" OnClick="btnNuevaVacante_Click" CssClass="btn btn-success w-100 text-white" ToolTip="Buscar"><i class="">NUEVA VACANTE</i></asp:LinkButton>
+                                                <asp:LinkButton ID="btnNuevaVacante" runat="server" OnClick="btnNuevaVacante_Click" CssClass="btn btn-success w-100 text-white" ToolTip="Buscar"><i class="fa-solid fa-plus"></i>
+    <span>Nueva solicitud</span></asp:LinkButton>
                                             </div>
                                         </div>
-                                        <div class="col-md-5">
+                                        <div class="col-md-5" id="colEstatusVacante" runat="server">
                                             <div class="form-floating">
-                                                <asp:TextBox ID="txtBusquedaNombre" runat="server" CssClass="form-control textbox" MaxLength="255" placeholder="Nombre"></asp:TextBox>
-                                                <asp:Label ID="lblBusquedaNombre" runat="server" AssociatedControlID="txtBusquedaNombre" CssClass="label" Text="Nombre"></asp:Label>
+                                                <asp:DropDownList ID="ddlEstatusVacante" runat="server" CssClass="form-control textbox"></asp:DropDownList>
+                                                <asp:Label ID="lblEstatusVacante" runat="server" AssociatedControlID="ddlEstatusVacante" CssClass="label" Text="Estatus Vacante"></asp:Label>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4" id="colTipoCandidato" runat="server">
                                             <div class="form-floating">
-                                                <asp:DropDownList ID="ddlBusquedaIdTipoArchivo" runat="server" CssClass="form-control textbox select2-custom" placeholder="Tpo Archivo"></asp:DropDownList>
-                                                <asp:Label ID="lblBusquedaIdTipoArchivo" runat="server" AssociatedControlID="ddlBusquedaIdTipoArchivo" CssClass="label" Text="Tpo Archivo"></asp:Label>
+                                                <asp:DropDownList ID="ddlTipoCandidato" runat="server" CssClass="form-control textbox"></asp:DropDownList>
+                                                <asp:Label ID="lblTipoCandidato" runat="server" AssociatedControlID="ddlTipoCandidato" CssClass="label" Text="Tipo de Candidato"></asp:Label>
                                             </div>
                                         </div>
                                     </div>
@@ -45,10 +46,10 @@
                                 <div class="col-md-2">
                                     <div class="row g-1">
                                         <div class="col-md-4">
-                                            <asp:LinkButton ID="btnBuscar" runat="server" CssClass="btn btn-info w-100 text-white" ToolTip="Buscar"><i class="fa-solid fa-magnifying-glass"></i></asp:LinkButton>
+                                            <asp:LinkButton ID="btnBuscar" runat="server" OnClick="btnBuscar_Click" CssClass="btn btn-info w-100 text-white" ToolTip="Buscar"><i class="fa-solid fa-magnifying-glass"></i></asp:LinkButton>
                                         </div>
                                         <div class="col-md-4">
-                                            <asp:LinkButton ID="btnLimpiar" runat="server" CssClass="btn btn-warning w-100 text-white" ToolTip="Limpiar"><i class="fa-solid fa-xmark"></i></asp:LinkButton>
+                                            <asp:LinkButton ID="btnLimpiar" runat="server" OnClick="btnLimpiar_Click" CssClass="btn btn-warning w-100 text-white" ToolTip="Limpiar"><i class="fa-solid fa-xmark"></i></asp:LinkButton>
                                         </div>
                                         <div class="col-md-4">
                                             <asp:LinkButton ID="btnExportar" runat="server" CssClass="btn btn-success w-100 text-white" ToolTip="Exportar"><i class="fa-regular fa-file-excel"></i></asp:LinkButton>
@@ -60,7 +61,7 @@
                             <!-- Fin Area de filtros -->
                             <!-- Tabla para mostrar la información -->
                             <div class="mt-3 table-responsive">
-                                <asp:GridView ID="gvConsultaGeneral" runat="server" CssClass="table table-sm table-striped" AutoGenerateColumns="true" AllowPaging="true" PageSize="7" DataKeyNames="Id">
+                                <asp:GridView ID="gvConsultaGeneral" runat="server" CssClass="table table-sm table-striped" AutoGenerateColumns="true" AllowPaging="true" PageSize="7" DataKeyNames="Id" OnRowCommand="gvConsultaGeneral_RowCommand" OnRowDataBound="gvConsultaGeneral_RowDataBound" OnPageIndexChanging="gvConsultaGeneral_PageIndexChanging">
                                     <RowStyle CssClass="py-0 m-0" />
                                     <PagerSettings Mode="NumericFirstLast" Position="Bottom" />
                                     <PagerStyle CssClass="custom-pager" />
@@ -76,7 +77,7 @@
                                     <Columns>
                                         <asp:TemplateField>
                                             <ItemTemplate>
-                                                <asp:LinkButton ID="btnSeleccionar" class="btn btn-warning text-white" data-position="right" ToolTip="Seleccionar" runat="server" CausesValidation="False" CommandName="Seleccionar" CommandArgument='<%# Eval("Id") %>'><i class="fa fa-pen-to-square"></i></asp:LinkButton>
+                                                <asp:LinkButton ID="btnVer" class="btn btn-primary text-white" data-position="right" ToolTip="Ver" runat="server" CausesValidation="False" CommandName="Ver" CommandArgument='<%# Eval("Id") %>'><i class="fa-solid fa-eye"></i></asp:LinkButton>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                     </Columns>

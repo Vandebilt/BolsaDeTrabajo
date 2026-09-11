@@ -109,7 +109,7 @@
     <Content Include="recursos\css\verSustentante.css" />
     <Content Include="recursos\img\elefanteAbstracto.png" />
     <Content Include="Candidato.aspx" />
-    <Content Include="PanelEmpresa.aspx" />
+    <Content Include="PanelSolicitudes.aspx" />
     <Content Include="ValidacionEmpresa.aspx" />
     <Content Include="ValidacionCandidato.aspx" />
     <Content Include="Login.aspx" />
@@ -257,12 +257,12 @@
     <Compile Include="PaqueteSoftware.aspx.designer.cs">
       <DependentUpon>PaqueteSoftware.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PanelEmpresa.aspx.cs">
-      <DependentUpon>PanelEmpresa.aspx</DependentUpon>
+    <Compile Include="PanelSolicitudes.aspx.cs">
+      <DependentUpon>PanelSolicitudes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PanelEmpresa.aspx.designer.cs">
-      <DependentUpon>PanelEmpresa.aspx</DependentUpon>
+    <Compile Include="PanelSolicitudes.aspx.designer.cs">
+      <DependentUpon>PanelSolicitudes.aspx</DependentUpon>
     </Compile>
     <Compile Include="ValidacionEmpresa.aspx.cs">
       <DependentUpon>ValidacionEmpresa.aspx</DependentUpon>

@@ -11,8 +11,17 @@ namespace FACPYA.BolsaDeTrabajo.Presentacion
 {
 
 
-    public partial class PanelEmpresa
+    public partial class PanelSolicitudes
     {
+
+        /// <summary>
+        /// Control colBtnNuevaVacante.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl colBtnNuevaVacante;
 
         /// <summary>
         /// Control btnNuevaVacante.
@@ -24,40 +33,58 @@ namespace FACPYA.BolsaDeTrabajo.Presentacion
         protected global::System.Web.UI.WebControls.LinkButton btnNuevaVacante;
 
         /// <summary>
-        /// Control txtBusquedaNombre.
+        /// Control colEstatusVacante.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBusquedaNombre;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl colEstatusVacante;
 
         /// <summary>
-        /// Control lblBusquedaNombre.
+        /// Control ddlEstatusVacante.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBusquedaNombre;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEstatusVacante;
 
         /// <summary>
-        /// Control ddlBusquedaIdTipoArchivo.
+        /// Control lblEstatusVacante.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlBusquedaIdTipoArchivo;
+        protected global::System.Web.UI.WebControls.Label lblEstatusVacante;
 
         /// <summary>
-        /// Control lblBusquedaIdTipoArchivo.
+        /// Control colTipoCandidato.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblBusquedaIdTipoArchivo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl colTipoCandidato;
+
+        /// <summary>
+        /// Control ddlTipoCandidato.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlTipoCandidato;
+
+        /// <summary>
+        /// Control lblTipoCandidato.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTipoCandidato;
 
         /// <summary>
         /// Control btnBuscar.

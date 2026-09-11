@@ -246,9 +246,10 @@
                                 <li id="liPerfilEmpresa" class="nav-item" runat="server" visible="false">
                                     <a class="nav-link elemento navbar-Text" href="PerfilEmpresa.aspx">Perfil de Empresa</a>
                                 </li>
-                                <li id="liPanelEmpresa" class="nav-item" runat="server" visible="false">
-                                    <a class="nav-link elemento navbar-Text" href="PanelEmpresa.aspx">Panel de Solicitudes</a>
+                                <li id="liPanelSolicitudes" class="nav-item" runat="server" visible="false">
+                                    <a class="nav-link elemento navbar-Text" href="PanelSolicitudes.aspx">Panel de Solicitudes</a>
                                 </li>
+
                                 <li id="liGrupoMod" class="nav-item" runat="server" visible="false">
                                     <a class="nav-link elemento navbar-Text dropdown-toggle" href="javascript:void(0);" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Módulos
                                     </a>
@@ -289,6 +290,9 @@
                                         </li>
                                         <li id="liListadoEmpresa" runat="server">
                                             <a class="dropdown-item" href="ListadoEmpresa.aspx">Listado</a>
+                                        </li>
+                                        <li id="liPanelSolicitudesAdmin" runat="server">
+                                            <a class="dropdown-item" href="PanelSolicitudes.aspx">Panel de Solicitudes</a>
                                         </li>
                                     </ul>
                                 </li>

@@ -68,6 +68,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\TokenHelper.cs" />
+    <Compile Include="logicaSolicitud.cs" />
+    <Compile Include="logicaMunicipioSolicitud.cs" />
+    <Compile Include="logicaCarreraSolicitud.cs" />
+    <Compile Include="logicaSemestreSolicitud.cs" />
+    <Compile Include="logicaExperienciaSolicitud.cs" />
+    <Compile Include="logicaIdiomaSolicitud.cs" />
     <Compile Include="logicaArea.cs" />
     <Compile Include="logicaCatalogo.cs" />
     <Compile Include="logicaCodigo.cs" />
@@ -121,6 +127,12 @@
     <Compile Include="Validacion\validacionSustentanteCorreo.cs" />
     <Compile Include="Validacion\validacionSustentante.cs" />
     <Compile Include="Validacion\validacionSustentanteAreaInteres.cs" />
+    <Compile Include="Validacion\validacionSolicitud.cs" />
+    <Compile Include="Validacion\validacionMunicipioSolicitud.cs" />
+    <Compile Include="Validacion\validacionCarreraSolicitud.cs" />
+    <Compile Include="Validacion\validacionSemestreSolicitud.cs" />
+    <Compile Include="Validacion\validacionExperienciaSolicitud.cs" />
+    <Compile Include="Validacion\validacionIdiomaSolicitud.cs" />
     <Compile Include="Validacion\validacionEmpresaDocumento.cs" />
     <Compile Include="Validacion\validacionSustentanteDocumento.cs" />
     <Compile Include="Validacion\validacionSustentanteExperienciaLaboral.cs" />

@@ -87,15 +87,6 @@ namespace FACPYA.BolsaDeTrabajo.Presentacion
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liPerfilEmpresa;
 
         /// <summary>
-        /// Control liPanelEmpresa.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liPanelEmpresa;
-
-        /// <summary>
         /// Control liGrupoMod.
         /// </summary>
         /// <remarks>
@@ -202,6 +193,24 @@ namespace FACPYA.BolsaDeTrabajo.Presentacion
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liListadoEmpresa;
+
+        /// <summary>
+        /// Control liPanelSolicitudesAdmin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liPanelSolicitudesAdmin;
+
+        /// <summary>
+        /// Control liPanelSolicitudes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liPanelSolicitudes;
 
         /// <summary>
         /// Control lnkManual.
